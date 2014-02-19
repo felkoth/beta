@@ -1,0 +1,278 @@
+﻿.grid 
+{ 
+	width:96%; 
+	font-family:Tahoma;
+} 
+
+.grid .mid
+{
+	padding:3px 5px 0px 0px;
+}
+
+/*---------------------------------------*/
+/* DATATABLE STYLES                      */
+/*---------------------------------------*/
+ 
+.grid .datatable {
+	width:100%;
+	color:#666;
+} 
+     
+.grid .datatable TH
+{
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:0px;
+    padding:2px 4px;
+    color:#888;  /*#0c5eab;*/
+    border-bottom:solid 2px #95c1f8;
+    background-color:White;
+}
+.grid .datatable TH A
+{ 
+	text-decoration:none;
+	color:#95c1f8;
+}
+
+.grid .datatable TH.left  {text-align:left;}
+.grid .datatable TH.right {text-align:right;}
+
+.grid .datatable TH.sortasc A { background:url(../_images/grid/asc.gif) no-repeat right center;padding-right:18px; }
+.grid .datatable TH.sortdesc A { background:url(../_images/grid/desc.gif) no-repeat right center;padding-right:18px; }
+
+
+.grid .datatable .row,.grid .datatable .footer
+{
+    background-color:White;
+} 
+
+.grid .datatable .row>TD
+{
+    font-size:11px;
+    padding:6px 4px;
+    border-bottom:solid 1px #95c1f8;
+}
+
+.grid .datatable .grey>TD
+{
+    font-size:11px;
+    padding:6px 4px;
+    border-bottom:solid 1px #95c1f8;
+    background:#ededed;
+    color:#c8c4c4;
+}  
+
+.grid .datatable .footer>TD
+{
+    font-size:11px;
+    font-weight:bold;
+    padding:6px 4px;
+    
+} 
+
+/* These styles are for grids with calendar extenders*/
+
+.grid .datatable .row2
+{
+    font-size:11px;
+    border-bottom:solid 1px #95c1f8;
+} 
+
+.grid .datatable .row2 .item
+{
+    margin:6px 4px;
+} 
+   
+.grid .row:hover, .grid .datatable .select:hover, .grid .datatable .row2:hover
+{
+	background:#fffacd;
+	color:#000;
+}
+
+.grid .datatable .select TD {
+    font-size:11px;
+    padding:6px 4px;
+    border-bottom:solid 1px #95c1f8;
+    background-color:#fffacd;
+	
+}
+.grid .datatable .row TD.first, .grid .datatable .select TD.first { padding-left:10px; }
+.grid .datatable TH.first { padding-left:10px; }
+
+.grid tr:hover .first
+{
+    background-repeat:no-repeat;   
+	background-image:url(../_images/grid/bullet.gif);
+} 
+
+.grid .datatable .subhead TD { 
+    text-align:left;
+    text-transform:uppercase;
+    padding:3px 4px;
+    border-bottom:solid 1px #e1c4d3;
+    color:#444;
+    font-size:10px;
+    font-weight:bold;
+   
+}
+.grid .datatable .subTotal TD { 
+    text-transform:uppercase;
+    padding:3px 4px;
+    border-bottom:solid 1px #e1c4d3;
+    font-size:10px;
+    color:#444;
+    font-weight:bold;
+   
+}
+
+.grid .datatable .link {
+    text-decoration: none;
+	color: #0c5eab;
+	border-bottom:none;
+}
+ 
+.grid .datatable .link:hover {
+    border-bottom: 1px dotted #336699;
+}
+
+/*---------------------------------------*/
+/* SUB GRID STYLES                       */
+/*---------------------------------------*/
+.grid .subgrid {
+	width:100%;
+	color:#666;
+}        
+.grid .subgrid TH
+{
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:0px;
+    padding:2px 4px;
+    color:#008080;
+    border-bottom:solid 2px #bbd9ee;
+    background-color:#e0f6ff;
+}
+.grid .subgrid TH A
+{ 
+	text-decoration:none;
+	color:#0c5eab;	
+}
+.grid .subgrid .row TD
+{
+    font-size:11px;
+    padding:6px 4px;
+    border-bottom:solid 1px #bbd9ee;
+    
+}      
+.grid .subgrid .row:hover
+{
+	background-color:#fffacd;
+	color:#000;
+}
+
+.grid .subgrid .row TD.first { padding-left:10px; }
+.grid .subgrid TH.first { padding-left:10px; }
+.grid .subgrid .row:hover .first
+{
+    background-repeat:no-repeat;   
+	background-image:url(../img/bullet.gif);
+}  
+/*---------------------------------------*/
+/* DETAILS VIEW STYLES                   */
+/*---------------------------------------*/
+.DetailView {
+	width:100%;
+	color:#666;
+}
+
+.DetailView .header {
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:0px;
+    text-align:center;
+    padding:2px 6px;
+    color:#0c5eab;
+    border-bottom:solid 2px #bbd9ee;
+}
+
+.DetailView .row TD {
+    font-size:11px;
+    text-align:left;
+    padding:6px 4px;
+    border-bottom:solid 1px #bbd9ee;
+}  
+
+/* This is for detailsview with a calendar extender in it*/
+.DetailView .row2  {
+    font-size:11px;
+    text-align:left;
+    border-bottom:solid 2px #bbd9ee;
+} 
+
+.DetailView .row2 .item {
+    margin:6px 4px;
+}
+    
+.DetailView .row:hover, .DetailView .row2:hover {
+	background-color:#fffacd;
+	color:#000;
+}
+
+
+
+
+/*---------------------------------------*/
+/* DATA PAGER STYLES                     */
+/*---------------------------------------*/
+.grid TR.pager-row TD
+{
+    border-top:solid 2px #bbd9ee;
+    font-family:arial,sans-serif;
+    text-align:center;
+    padding:3px;	
+    font-size:12px;
+}
+.grid .pager
+{
+    font-family:arial,sans-serif;
+    text-align:center;
+    padding:6px;	
+    font-size:12px;
+} 
+.grid .pager SPAN.command,        
+.grid .pager SPAN.current,        
+.grid .pager A.command,
+.grid TR.pager-row TD A
+{
+    color:#5a90ce;
+    padding:0px 5px;
+    text-decoration:none;
+    border:none;
+}
+.grid .pager A.command:hover,
+.grid TR.pager-row TD A:hover
+{
+    border:solid 2px #408BB6;
+    background-color:#59A5D1;
+    color:#fff;
+    padding:0px 3px;
+    text-decoration:none;
+}        
+.grid .pager SPAN.current,
+.grid TR.pager-row TD SPAN
+{
+	border:none;
+    font-weight:bold;
+    color:#3e3e3e;
+    padding:0px 6px;
+}
+.grid TR.pager-row TD
+{
+	border-top:none;
+	text-align:center;
+}
+.grid TR.pager-row TABLE
+{
+	height:35px;
+	margin:0 auto 0 auto;
+}

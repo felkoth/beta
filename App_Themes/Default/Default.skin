@@ -1,0 +1,36 @@
+﻿
+<asp:LinkButton CssClass="small-button smalllightblue" runat="server"></asp:LinkButton>
+<asp:LinkButton SkinId="link" CssClass="link" runat="server"></asp:LinkButton>
+<asp:LinkButton SkinId="NoStyle" runat="server"></asp:LinkButton>
+
+<asp:TextBox runat="server" CssClass="textBox"></asp:TextBox>
+<asp:TextBox runat="server" SkinId="small" CssClass="textBoxSmall"></asp:TextBox>
+<asp:TextBox runat="server" SkinId="large" CssClass="textBoxLarge"></asp:TextBox>
+<asp:TextBox runat="server" SkinId="multi" Height="30px" Font-Names="Verdana" Font-Size="0.8em"></asp:TextBox>
+
+
+<asp:DropDownList runat="server" CssClass="dropdown"></asp:DropDownList>
+
+<asp:GridView runat="server" AutoGenerateColumns="False" cssclass="datatable" GridLines="None" BorderWidth="0px" AllowSorting="True"    
+    SortedAscendingHeaderStyle-CssClass="sortasc" SortedDescendingHeaderStyle-CssClass="sortdesc">
+    <RowStyle CssClass="row" />   
+</asp:GridView>
+
+<asp:GridView SkinID="NoSort" runat="server" AutoGenerateColumns="False" cssclass="datatable" GridLines="None" BorderWidth="0px" AllowSorting="False">    
+    <RowStyle CssClass="row" />   
+</asp:GridView>
+
+<asp:GridView SkinId="pager" runat="server" AutoGenerateColumns="False" cssclass="datatable" GridLines="None" BorderWidth="0px" AllowPaging="True" AllowSorting="True" PageSize="50"    
+    SortedAscendingHeaderStyle-CssClass="sortasc" SortedDescendingHeaderStyle-CssClass="sortdesc">
+    <RowStyle CssClass="row" />
+    <PagerSettings FirstPageText="«" LastPageText="»" Mode="NumericFirstLast" 
+        PageButtonCount="10" NextPageText="&gt;" Position="TopAndBottom" PreviousPageText="&lt;" />
+    <pagerstyle CssClass="pager-row" />
+</asp:GridView>
+
+<asp:DetailsView runat="server" AutoGenerateRows="False" CssClass="DetailView" GridLines="None" BorderWidth="0px">
+    <RowStyle CssClass="row" />
+    <FieldHeaderStyle CssClass="header" />
+    <CommandRowStyle CssClass="pager-row" />
+</asp:DetailsView>
+

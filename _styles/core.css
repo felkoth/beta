@@ -1,0 +1,325 @@
+﻿/* Common CSS styles for app web applications */
+/* Version 1.0.0 */
+/*--------------------------------------------*/
+
+
+
+a:visited {
+    text-decoration:none;
+    border:none;
+}
+
+h1 {
+	float:left;
+	color: #222;
+	text-decoration: none;
+	font-size: 2em;
+	padding:0;
+	margin:0;	
+}
+
+
+h2 {
+    font-size: 2em;
+    margin: 20px 0px 10px 10px;
+	padding-left: 10px;
+	border-left: 4px solid #962525;
+	color: #444444;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 20px 0px 10px 5px;
+	padding-left: 10px;
+	border-left: 3px solid #253896;
+	color: #444444;
+}
+
+h4 
+{
+    font-size: 1.5em;
+    margin: 20px 0px 10px 5px;
+	padding-left: 10px;
+	border-left: 3px solid #962525;
+	color: #444444;
+}
+
+h5 {
+    font-size: 1.2em;    
+	color: #444444;
+}
+
+.shadow {   
+	border:1px solid #CCC;	
+	box-shadow:  0px 0px 10px 2px #ccc;	
+}
+
+
+.center {text-align:center;}
+
+/* button 
+---------------------------------------------- */
+a.button, a.linkButton {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	padding: .4em .4em .42em;	
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+	
+}
+a.button:hover, a.linkButton:hover {
+	text-decoration: none;
+	background: #ededed;	
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+a.button:active, a.linkButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.textBoxSmall {
+    font-size:10px;
+    height:13px;
+    width:60px;
+    margin:0 2px;
+}
+
+.textBox {
+    font-size:0.8em;
+    font-family:Verdana;
+    height:13px;
+    width:90px;
+    margin:0 2px;
+    font-family:
+}
+
+.textBoxLarge {
+    font-size:10px;
+    height:13px;
+    width:150px;
+    margin:0 2px;
+}
+
+.label 
+{
+    font-weight:bold !important;
+    color:#333;
+    margin:0 6px;
+}
+
+.dropdown {
+    font-size:10px;
+    width:96px;
+    margin:0 2px;
+    vertical-align:bottom;
+}
+
+.title { 
+	margin:0; padding:0px; 
+	color:#ffffff;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	text-align:left;
+	font-weight:bolder;
+}
+
+
+
+
+.modalPopup {
+	border: 1px solid #BBB;	
+    background-color:white;
+	padding:3px;
+	padding-left:10px;
+}
+
+/* modal overlay */
+.modalBackground {
+    background-color:Gray;
+    filter:alpha(opacity=20);
+    opacity:0.2;
+}  
+
+.greyedOut {
+    filter:alpha(opacity=50);
+	opacity:0.5;
+}
+
+/* So the overflow scrolls */
+.container {overflow:auto;}
+
+/* Keep headings and the header cells positioned as we scroll */
+.container table th, .container h3 {position:relative;}
+
+/* For alignment of the scroll bar */
+.container table tbody {overflow-x:hidden;} 
+
+
+.validatorCalloutHighlight {
+    background-color: lemonchiffon; 
+}
+
+.hiddenButton {
+    visibility: hidden; 
+    float:left;
+    width:0px;
+    height:0px;
+}
+
+.clear {
+    clear:both;
+    margin:0;
+    padding:0;
+}
+
+.hidden {display:none;}
+
+
+/* ----- SEARCH BOX STYLES ----- */
+.search-box input {
+     border:none;
+     border-width:0px;
+}
+.search-box   {
+     display:inline;
+     border:1px solid #AAAAAA;            
+}
+.search-box .img {
+     vertical-align:text-bottom;
+}
+
+/* ----- END SEARCH BOX STYLES ----- */
+
+
+
+/* ----- TOOLTIP STYLES ----- */
+#tooltipContainer, #pnlFollowUp {
+    display:none;
+    position:absolute;  
+    left:0;  
+    top:0;      
+    z-index: 20000; 
+    color:#666; 
+}  
+.tooltipTable {}
+
+.tooltipTable h4 {background:#FFF;margin-top:0;padding-top:5px;}
+
+.tooltipContent, #popupContent  {  
+    background-color: #FFF;  
+    min-width: 175px;  
+    min-height: 20px; 
+    width:100%; 
+}  
+
+.errorPopup .tooltipContent {
+    background-color: #FFF;
+    width:350px;
+   /* min-height:20px;*/
+}
+  
+.errorPopup .closeButton {
+    position:absolute;
+    top:-5px;
+    left:365px;
+    margin:0;
+    padding:0;
+}
+
+.tooltipContent .label  {font-weight:bold;}    
+  
+.tooltipTable .corner  {width:19px;height:15px;} 
+      
+.tooltipTable .topLeft  {background: url(../_images/tooltip/blue/balloon_topLeft.png) no-repeat;}  
+      
+.tooltipTable .bottomLeft {background: url(../_images/tooltip/blue/balloon_bottomLeft.png) no-repeat;}  
+      
+.tooltipTable td.left  {background: url(../_images/tooltip/blue/balloon_left.png) repeat-y;}  
+      
+.tooltipTable td.right {background: url(../_images/tooltip/blue/balloon_right.png) repeat-y;}  
+      
+.tooltipTable .topRight {background: url(../_images/tooltip/blue/balloon_topRight.png) no-repeat;}  
+      
+.tooltipTable .bottomRight {background: url(../_images/tooltip/blue/balloon_bottomRight.png) no-repeat;}  
+      
+.tooltipTable .top  {background: url(../_images/tooltip/blue/balloon_top.png) repeat-x;}  
+      
+.tooltipTable .bottom {background: url(../_images/tooltip/blue/balloon_bottom.png) repeat-x;text-align: center;}  
+
+/* RED TOOLTIP */
+      
+.errorPopup .tooltipTable .topLeft  {background: url(../_images/tooltip/red/balloon_topLeft.png) no-repeat;}  
+      
+.errorPopup .tooltipTable .bottomLeft {background: url(../_images/tooltip/red/balloon_bottomLeft.png) no-repeat;}  
+      
+.errorPopup .tooltipTable td.left  {background: url(../_images/tooltip/red/balloon_left.png) repeat-y;}  
+      
+.errorPopup .tooltipTable td.right {background: url(../_images/tooltip/red/balloon_right.png) repeat-y;}  
+      
+.errorPopup .tooltipTable .topRight {background: url(../_images/tooltip/red/balloon_topRight.png) no-repeat;}  
+      
+.errorPopup .tooltipTable .bottomRight {background: url(../_images/tooltip/red/balloon_bottomRight.png) no-repeat;}  
+      
+.errorPopup .tooltipTable .top  {background: url(../_images/tooltip/red/balloon_top.png) repeat-x;}  
+      
+.errorPopup .tooltipTable .bottom {background: url(../_images/tooltip/red/balloon_bottom.png) repeat-x;text-align: center;}  
+
+
+/* ----- END TOOLTIP STYLES ----- */
+
+
+/* ----- PROGRESS INDICATOR STYLES ----- */
+.PrProgress {
+    display: block;
+    position: absolute;
+    padding: 2px 3px;
+    z-index:100000;
+}
+.PrContainer {
+    border: solid 1px #808080;
+    border-width: 1px 0px;
+}
+.PrHeader {
+    background: #FFF url(../_images/sprite.png) repeat-x 0px 0px;
+    border-color: #808080 #808080 #ccc;
+    border-style: solid;
+    border-width: 0px 1px 1px;
+    padding: 0px 10px;
+    color: #000000;
+    font-size: 9pt;
+    font-weight: bold;
+    line-height: 1.9;  
+    white-space:nowrap;
+    font-family: arial,helvetica,clean,sans-serif;
+}
+.PrBody {
+    background-color: #f2f2f2;
+    border-color: #808080;
+    border-style: solid;
+    border-width: 0px 1px;
+    padding: 10px;
+}
+.PrIFrame{}
+
+/* ----- END PROGRESS INDICATOR STYLES ----- */
+
+/* ----- NOTIFICATION STYLES -------*/
+#notification {
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    z-index: 20000; 
+    color:#666; 
+}
+.labelNotify {}
