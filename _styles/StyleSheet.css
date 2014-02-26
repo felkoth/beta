@@ -89,9 +89,9 @@ a.small-button:hover, a.big-button:hover, a.icon-button:hover { text-decoration:
 /*------------------------------------------------*/
 
 .container { text-align: left; float:right; width: 400px; position: relative; }
-#main { margin:0px auto;width:1000px; background-color:#fff;height:100%;padding-top: 15px;border-left:1px solid #EEE;box-shadow:0 0 1px 1px #DDD;}
+#main { margin:0px auto;width:1000px; background-color:#fff;padding-top: 15px;border-left:1px solid #EEE;box-shadow:0 0 1px 1px #DDD;}
 #navigation { border-top:1px solid #EEE; border-bottom:1px solid #EEE; }
-#topmenu { float:right; padding-left: 100px; padding-top:10px; margin-top:20px; }
+#topmenu { float:right; padding-left: 100px; padding-top:20px; margin-top:20px; }
 #top-menu-shadow, #bottom-menu-shadow { position:absolute; left:50%;margin-left:-480px; height:5px; display:block; width:960px; }
 #top-menu-shadow { top:11px; }
 #top-menu-shadow { background:url(../_images/main_sprite.png) no-repeat 0 -1366px; }
@@ -100,9 +100,16 @@ a.small-button:hover, a.big-button:hover, a.icon-button:hover { text-decoration:
 body.home #main-area { padding-top:45px; }
 
 #topmenu li { padding: 0 10px; float:left; }
-#topmenu a { font-size: 14px; color: #4d4d4d; text-decoration: none; padding: 0 10px 25px; }
+#topmenu  a { font-size: 14px; color: #4d4d4d; text-decoration: none; padding: 0 10px 25px; }
 #topmenu a:hover { color: #111;}
 #topmenu > ul > li > a.selected { color: #95c1f8!important; font-family: Georgia, serif; font-style: italic; }
+
+/*Menu Popup Styles */
+#topmenu li.has-popup a.highlighted {color:#95c1f8;}
+#topmenu ul.dynamic         {background:white;border:1px solid #DDD;margin-top:0px;text-align:right;}
+#topmenu ul.dynamic a       {padding:5px 27px 5px 10px;float:right;display:inline-block;}
+
+
 #logo{float:left;margin:30px 0 20px -20px;}
 #imgLogo{float:left;margin-left:55px;}
 #lblLogo {float:left;position:relative;left:-67px;top:65px;font-weight:bold;}
@@ -222,5 +229,5 @@ body.home #main-area { padding-top:45px; }
 /*------------------------------------------------*/
 
 #divInput   {float:left;width:500px;}
-#divResults {float:left;margin-left:10px;}
+#divResults {float:left;margin-left:10px;margin-top:-20px;}
 #divFilter  {float:right;}

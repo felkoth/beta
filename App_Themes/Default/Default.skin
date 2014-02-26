@@ -20,7 +20,7 @@
     <RowStyle CssClass="row" />   
 </asp:GridView>
 
-<asp:GridView SkinId="pager" runat="server" AutoGenerateColumns="False" cssclass="datatable" GridLines="None" BorderWidth="0px" AllowPaging="True" AllowSorting="True" PageSize="50"    
+<asp:GridView SkinId="pager" runat="server" AutoGenerateColumns="False" cssclass="datatable" GridLines="None" BorderWidth="0px" AllowPaging="True" AllowSorting="True" PageSize="5"    
     SortedAscendingHeaderStyle-CssClass="sortasc" SortedDescendingHeaderStyle-CssClass="sortdesc">
     <RowStyle CssClass="row" />
     <PagerSettings FirstPageText="«" LastPageText="»" Mode="NumericFirstLast" 

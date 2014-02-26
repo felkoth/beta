@@ -15,11 +15,10 @@ Partial Class _Default
     Protected Sub Page_LoadComplete(sender As Object, e As System.EventArgs) Handles Me.LoadComplete
         DisplaySliderLabels()
         CalculateResults()
+
         If Not IsPostBack Then
             LoadPreviousProjects()
         End If
-
-
 
     End Sub
 
@@ -27,10 +26,19 @@ Partial Class _Default
         ' Calculate Lines Of Code
         Dim strLanguage As String = ddlLanguage.SelectedValue
         Dim intAvgLocPerFp As Integer = GetAvgLocPerFunctionPoint(strLanguage)
-        Dim intFunctionPoints As Integer = If(txtFunctionPoints.Text = "", "0", txtFunctionPoints.Text)
-        Dim intLoc As Integer = intAvgLocPerFp * intFunctionPoints
-        Dim intKLoc As Integer = intLoc / 1000
-        lblLoC.Text = intLoc
+
+        Dim intFunctionPoints As Integer
+        Dim strFunctionPoints As String = If(txtFunctionPoints.Text = "", "0", txtFunctionPoints.Text)
+        Dim blFPPass As Boolean = Integer.TryParse(strFunctionPoints, intFunctionPoints)
+        If Not blFPPass Then
+            Master.Notify("Error: Invalid Function Point count.")
+            txtFunctionPoints.Text = 0
+            Exit Sub
+        End If
+
+        Dim decLoc As Decimal = intAvgLocPerFp * intFunctionPoints
+        Dim decKLoc As Decimal = decLoc / 1000
+        lblLoC.Text = decLoc
 
 
         ' Get Cocomo Factors
@@ -58,21 +66,48 @@ Partial Class _Default
         decEAF = decProgCapFactor * decLangExp * decSoftComp * decDocumentation
 
         ' Calculate Effort
-        Dim decEffort As Decimal = factA * (Math.Pow(intKLoc, factB)) * decEAF
+        Dim decEffort As Decimal = factA * (Math.Pow(decKLoc, factB)) * decEAF
         lblEffort.Text = Math.Round(decEffort, 1)
 
 
         ' Calculate Development Time (Schedule)
         Dim decSchedule As Decimal = factC * (Math.Pow(decEffort, factD))
-        lblSchedule.Text = Math.Round(decSchedule, 1)
+        lblSchedule.Text = Math.Round(decSchedule, 2)
+
+
+        ' JAG
+        ' convert dev time to days assume 8h/d, 5d/w, 20d/m
+        Dim durDays As Integer = Math.Truncate(decSchedule * 20)
+        If txtStartDate.Text = "" Then
+            txtStartDate.Text = DateTime.Now.ToString("MM/dd/yyyy")
+        End If
+
+        Dim csCode As Common = New Common()
+        lblEndDate.Text = csCode.GetLastDate(txtStartDate.Text, durDays).ToString("MMM dd, yyyy")
+
 
         ' Calculate People Required
         Dim intPeople As Integer = If(decSchedule = 0, 0, decEffort / decSchedule)
-        lblPeople.Text = intPeople
+        lblPeople.Text = If(intPeople = 0 And decEffort <> 0, 1, intPeople)
+        If intPeople = 1 Then
+            lblPeopleLabel.Text = "Person"
+        Else
+            lblPeopleLabel.Text = "People"
+        End If
 
         ' Calculate Cost
-        Dim decCostPersonMonth As Decimal = If(txtCostPersonMonth.Text = "", "0", txtCostPersonMonth.Text)
+        Dim decCostPersonMonth As Decimal
+        Dim strCostPersonMonth As String = If(txtCostPersonMonth.Text = "", "0", txtCostPersonMonth.Text)
+        Dim blCostPass As Boolean = Decimal.TryParse(strCostPersonMonth, decCostPersonMonth)
+        If Not blCostPass Then
+            Master.Notify("Error: Invalid Cost amount.")
+            txtCostPersonMonth.Text = 0
+            Exit Sub
+        End If
+
         Dim decCost As Decimal = decEffort * decCostPersonMonth
+        If decCost < 1 And decCostPersonMonth <> 0 Then decCost = 1 ' Final Cost should only be zero if Cost Per Month is zero
+
         lblFinalCost.Text = String.Format("{0:C0}", decCost)
     End Sub
 
@@ -83,6 +118,7 @@ Partial Class _Default
         txtProjectName.Text = ""
         txtFunctionPoints.Text = ""
         ddlLanguage.SelectedValue = "Select Language"
+        txtStartDate.Text = ""
 
         txtProgCap.Text = 2
         lblProgCap.Text = "Nominal"
@@ -100,6 +136,14 @@ Partial Class _Default
         Dim ds As DataSet = GetPreviousProjects()
         gvProjects.DataSource = ds
         gvProjects.DataBind()
+
+    End Sub
+
+    Protected Sub gvProjects_PageIndexChanged(sender As Object, e As System.EventArgs) Handles gvProjects.PageIndexChanged
+
+    End Sub
+
+    Protected Sub gvProjects_PageIndexChanging(sender As Object, e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles gvProjects.PageIndexChanging
 
     End Sub
 
@@ -126,6 +170,9 @@ Partial Class _Default
 
     Protected Sub LoadSavedData(ByVal coll As Collection)
         txtProjectName.Text = coll("ProjectName")
+        ' JAG
+        txtStartDate.Text = DateTime.Parse(coll("StartDate")).ToString("MM/dd/yyyy")
+        lblEndDate.Text = coll("EndDate")
         txtFunctionPoints.Text = coll("FunctionPoints")
         ddlLanguage.SelectedValue = coll("Language")
         rbtnProjectClass.SelectedValue = coll("ProjectClass")
@@ -168,9 +215,12 @@ Partial Class _Default
         Dim decSchedule As Decimal = lblSchedule.Text
         Dim intPeople As Integer = lblPeople.Text
         Dim intCost As Integer = lblFinalCost.Text
+        Dim strStartDate As String = DateTime.Parse(txtStartDate.Text).ToString("MM/dd/yyyy")
+        Dim strEndDate As String = DateTime.Parse(lblEndDate.Text).ToString("MM/dd/yyyy")
+
 
         Master.Notify(InsertProject(strProjectName, intFunctionPoints, strLanguage, strProjectClass, intProgCap, intLangExp, intSoftComplex,
-                                    intDocumentation, intCostPerPM, intLOC, decEffort, decSchedule, intPeople, intCost))
+                                    intDocumentation, intCostPerPM, intLOC, decEffort, decSchedule, intPeople, intCost, strStartDate, strEndDate))
 
         LoadPreviousProjects()
     End Sub

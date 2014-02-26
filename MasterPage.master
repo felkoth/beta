@@ -10,6 +10,9 @@
     <link href="_styles/round.css" rel="stylesheet" type="text/css" />
     <link href="_styles/grid.css" rel="stylesheet" type="text/css" />
     <link href="_styles/print.css" rel="stylesheet" type="text/css" media="print" />
+    <%--
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    --%>
 
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -19,13 +22,17 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         <Scripts>
             <asp:ScriptReference Path="~/_scripts/jquery-1.5.1.min.js" />
+            <%--
+            <asp:ScriptReference Path="http://code.jquery.com/jquery-1.10.2.js" />
+            <asp:ScriptReference Path="http://code.jquery.com/ui/1.10.4/jquery-ui.js" />
+            --%>
             <asp:ScriptReference Path="~/_scripts/JScript.js" />
             <asp:ScriptReference Path="~/_scripts/Update.js" />
         </Scripts>
         </asp:ScriptManager>
         
    
-        <div id="main">        
+        <div id="main" class="clearfix">        
             <div id="navigation">
                 <asp:Image ID="imgLogo" runat="server" ImageUrl="~/_images/LogoLightBlue.png" ClientIDMode="Static" />
                 <asp:Label ID="lblLogo" runat="server" ClientIDMode="Static" Text="Associates"></asp:Label>
@@ -33,11 +40,20 @@
                     <h1>Software Estimator</h1>
                 </div>
                 <div class="container">
-                    <asp:Menu ID="topmenu" runat="server" RenderingMode="List" Orientation="Horizontal" ClientIDMode="Static" CssClass="nav">                        
+                    <asp:Menu ID="topmenu" runat="server" RenderingMode="List" Orientation="Horizontal" ClientIDMode="Static" CssClass="nav" StaticEnableDefaultPopOutImage="false">                                         
                         <Items>
                             <asp:MenuItem NavigateUrl="Default.aspx" Text="Estimator"></asp:MenuItem>                                                     
-                            <asp:MenuItem NavigateUrl="Analysis.aspx" Text="Analysis"></asp:MenuItem>                                                   
-                            <asp:MenuItem NavigateUrl="Setup.aspx" Text="Setup"></asp:MenuItem>
+                            <asp:MenuItem Text="Analysis">
+                                <asp:MenuItem NavigateUrl="History.aspx" Text="History"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="Compare.aspx" Text="Compare"></asp:MenuItem>                                
+                                <asp:MenuItem NavigateUrl="Calendar.aspx" Text="Calendar"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="Reports.aspx" Text="Reports"></asp:MenuItem>
+                            </asp:MenuItem>        
+                                                                
+                            <asp:MenuItem Text="Setup">
+                                <asp:MenuItem NavigateUrl="Setup.aspx" Text="Factors"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="ImportExport.aspx" Text="Import/Export"></asp:MenuItem>
+                            </asp:MenuItem>
                         </Items>
                     </asp:Menu>                    
                 </div>
@@ -52,9 +68,9 @@
             <ContentTemplate>
                 <div id="page-wrap">
                     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">        
-                    </asp:ContentPlaceHolder>
+                    </asp:ContentPlaceHolder>                 
                 </div>    
-           
+              
                 <cc:Dialog ID="notification" runat="server" CssClass="hidden">       
                     <asp:Label ID="lblNotification" class="labelNotify" runat="server" Text=""></asp:Label>				      
                 </cc:Dialog>
@@ -75,7 +91,6 @@
 
             </ContentTemplate>
             </asp:UpdatePanel>
-
             <ajax:UpdatePanelAnimationExtender ID="UpdatePanelAnimationExtender1" runat="server" TargetControlID="updContent" >
                 <Animations>
                     <OnUpdating>
@@ -99,7 +114,6 @@
                     </div>
                 </div>
             </asp:Panel>
-                 
         </div>
     </form>
 </body>
