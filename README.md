@@ -1,4 +1,8 @@
-beta
-====
+ITM
+===
 
-beta vb project
+Group Code
+
+Will add members when they register
+
+Registered so far: Andrew, Ben

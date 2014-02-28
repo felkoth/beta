@@ -1,0 +1,190 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Utilities
+</name>
+</assembly>
+<members>
+<member name="M:Utilities.Utilities.GetDateValue(System.String)">
+	<summary>
+ Converts a string date into a DateTime object
+ </summary>
+	<param name="sVal">Date to convert</param>
+</member><member name="M:Utilities.Utilities.GetRowControlValue(System.Web.UI.WebControls.GridViewRow,System.String)">
+	<summary>
+ Returns the text of a control located within a gridview row
+ </summary>
+	<param name="row">Gridview Row</param>
+	<param name="strControlName">Name of control to find</param>
+</member><member name="M:Utilities.Utilities.CreateGUID(System.String)">
+	<summary>
+ Creates GUID of specified length
+ </summary>
+	<param name="tmpLength">Length of GUID</param>
+	<returns>String GUID</returns>
+</member><member name="M:Utilities.Utilities.LenText(System.Double)">
+	<summary>
+ This function will change a decimal number of feet to the text string representation of feet, inches, and fractional inches.
+ It will round the fractional inches to the nearest 1/x where x is the denominator.
+ </summary>
+	<param name="FeetIn">Decimal Feet and Inches to convert</param>
+	<returns>String of Feet and Inches</returns>
+	<remarks></remarks>
+</member><member name="M:Utilities.Utilities.IsEven(System.Int32)">
+	<summary>
+ Determines if a number is even
+ </summary>
+	<param name="Number">Number to check</param>
+	<returns>Boolean</returns>
+	<remarks></remarks>
+</member><member name="M:Utilities.Utilities.CalcDecSpan(System.String)">
+	<summary>
+ Converts a text string of feet and inches into decimal feet
+ </summary>
+	<param name="sender">String to convert</param>
+	<returns>Decimal value of input</returns>
+	<remarks></remarks>
+</member><member name="M:Utilities.Utilities.PrintReport(System.String,System.Data.DataSet,System.Object[])">
+	<summary>
+ Prints Crystal Reports
+ </summary>
+	<param name="strName">Name of primary report.</param>
+	<param name="ds">Dataset for primary report</param>
+	<param name="Params">Array of additional paramters: datasets of subreports or parameters for report.</param>
+	<remarks>Datasets for sub reports should have their name set to the name of the subreport.</remarks>
+</member><member name="M:Utilities.Utilities.ReadFile(System.String)">
+	<summary>
+ Reads a file on the server to the screen
+ </summary>
+	<param name="strPath">Full server path to file</param>
+	<remarks></remarks>
+</member><member name="M:Utilities.Utilities.UserIsInGroup(System.String)">
+	<summary>
+ Returns true if current user is a member of groupName
+ </summary>
+	<param name="groupName">Group to check</param>
+</member><member name="M:Utilities.Utilities.GetADAcctName(System.String)">
+	<summary>
+ Gets the Active Directory Account Name given users full name
+ </summary>
+	<param name="strUser">Full Name of user to check</param>
+</member><member name="M:Utilities.Utilities.GetADInfo(System.String)">
+	<summary>
+ Gets the Active Directory information for the given user
+ </summary>
+	<param name="strUser">UserName or FUll Name to check</param>
+</member><member name="M:Utilities.Utilities.Send(System.String,System.String,System.String,System.String,System.String,System.Net.Mail.Attachment,System.Boolean)">
+	<summary>
+ Send an email
+ </summary>
+	<param name="toAddress"></param>
+	<param name="strFromAddress"></param>
+	<param name="strBody"></param>
+	<param name="strSubject"></param>
+	<param name="attachment"></param>
+	<param name="debug"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Utilities.DataAccess.GetDataCollection(System.String,System.String,Microsoft.VisualBasic.Collection)">
+	<summary>
+ Returns a collection of the data returned by an SQL stored procedure with the keys representing the column names
+ </summary>
+	<param name="strProcedureName">SQL Stored Procedure to execute</param>
+	<param name="strConnection">Connection string to use</param>
+	<param name="collParameters">A collection of parameter names and values</param>
+</member><member name="M:Utilities.DataAccess.GetDataSet(System.String,System.String,Microsoft.VisualBasic.Collection)">
+	<summary>
+ Returns a dataset of the data returned by a given SQL select query.
+ </summary>
+	<param name="strProcedureName">SQL stored procedure to execute.</param>
+	<param name="strConnection">Connection string to database.</param>
+	<param name="collParameters">Collection of sql parameters</param>
+</member><member name="M:Utilities.DataAccess.DataOperation(System.String,System.String,Microsoft.VisualBasic.Collection)">
+	<summary>
+ Used for SQL Insert, Update and Delete statements.
+ </summary>
+	<param name="strProcedureName">Name of stored procedure to execute.</param>
+	<param name="strConnection">Connection string to database.</param>
+	<param name="collParameters">Collection containing sql parameters.</param>
+</member><member name="M:Utilities.DataAccess.DataOperation(System.String,System.String,System.Object[])">
+	<summary>
+ Used for SQL Insert, Update and Delete statements.
+ </summary>
+	<param name="strProcedureName">Name of stored procedure to execute.</param>
+	<param name="strConnection">Connection string to database.</param>
+	<param name="Params">Parameters for stored procedure. Must be in same order as stored procedure..</param>
+</member><member name="M:Utilities.DataAccess.GetDataCollection(System.String,System.String,System.Object[])">
+	<summary>
+ Returns a collection of the data returned by an SQL stored procedure with the keys representing the column names
+ </summary>
+	<param name="strProcedureName">SQL Stored Procedure name</param>
+	<param name="strConnection">Connection string to database</param>
+	<param name="Params">Parameters for stored procedure. Must be in same order as stored procedure.</param>
+	<remarks>The parameters must be input in the same order as the stored procedure.</remarks>
+</member><member name="M:Utilities.DataAccess.GetDataList(System.String,System.String,System.Object[])">
+	<summary>
+ Returns an ArrayList of the data returned by an SQL stored procedure
+ </summary>
+	<param name="strProcedureName">SQL Stored Procedure name</param>
+	<param name="strConnection">Connection string to database</param>
+	<param name="Params">Parameters for stored procedure. Must be in same order as stored procedure.</param>
+	<remarks>The parameters must be input in the same order as the stored procedure.</remarks>
+</member><member name="M:Utilities.DataAccess.GetDataSet(System.String,System.String,System.Object[])">
+	<summary>
+ Returns a dataset of the data returned by a given SQL select query.
+ </summary>
+	<param name="strProcedureName">SQL stored procedure to execute.</param>
+	<param name="strConnection">Connection string to database.</param>
+	<param name="Params">Parameters for stored procedure. Must be in same order as stored procedure.</param>
+</member><member name="M:Utilities.PeriodInfo.GetCurrentPeriod">
+	<summary>
+ Returns current Macola period
+ </summary>
+</member><member name="M:Utilities.PeriodInfo.GetPeriodInfo(System.String)">
+	<summary>
+ Returns a collection of Period Info
+ </summary>
+</member><member name="M:Utilities.PeriodInfo.GetWeek(System.String)">
+	<summary>
+ Returns a collection containing the Mfg week and Pay week of a given date, with keys "MfgWeek" and "PayWeek" respectively.
+ </summary>
+	<param name="strDate">Date</param>
+</member><member name="M:Utilities.PeriodInfo.GetPeriodStatus(System.String)">
+	<summary>
+ Gets Period Status from database
+ </summary>
+	<param name="YearPeriod">Year and period to search for</param>
+</member><member name="M:Utilities.PeriodInfo.GetYearPeriod(System.String)">
+	<summary>
+ Returns the YearPeriod of entered date.
+ </summary>
+	<param name="strDate">Date to search by</param>
+</member><member name="M:Utilities.LocationInfo.SetLocation(System.String)">
+	<summary>
+ Set current location. Accepts full location name or location code.
+ </summary>
+</member><member name="M:Utilities.LocationInfo.GetUserLocation(System.String)">
+	<summary>
+ Gets the location of strUser
+ </summary>
+</member><member name="T:Utilities.ExcelReader">
+	<summary>
+ Provides tools for reading and writing to Excel files on the server
+ </summary>
+</member><member name="P:Utilities.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Utilities.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Utilities.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

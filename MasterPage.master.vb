@@ -4,8 +4,7 @@ Partial Class MasterPage
 
     Public ReadOnly Property ConStr() As String
         Get
-            'Return System.Configuration.ConfigurationManager.ConnectionStrings("cnMetrics").ToString
-            Return "Data Source=" & Server.MapPath("Metrics.sdf")
+            Return System.Configuration.ConfigurationManager.ConnectionStrings("cnMetrics").ToString
         End Get
     End Property
 
